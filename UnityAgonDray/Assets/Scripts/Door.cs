@@ -33,4 +33,9 @@ public class Door : MonoBehaviour
             inReach = true;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        inReach = false;
+    }
 }

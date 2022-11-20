@@ -29,4 +29,9 @@ public class Pickup : MonoBehaviour
             inReach = true;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        inReach = false;
+    }
 }
