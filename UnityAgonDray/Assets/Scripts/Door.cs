@@ -7,10 +7,11 @@ public class Door : MonoBehaviour
     public Animator door;
     public GameObject doorGO;
     bool inReach = false;
+    public AudioSource doorClip;
     // Start is called before the first frame update
     void Start()
     {
-        
+        doorClip = doorGO.GetComponent<AudioSource>();  
     }
 
     // Update is called once per frame
@@ -21,6 +22,7 @@ public class Door : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 door.SetBool("Open", true);
+                doorClip.Play();
             }
         }
     }
