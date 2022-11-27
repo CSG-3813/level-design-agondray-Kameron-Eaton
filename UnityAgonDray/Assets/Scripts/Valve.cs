@@ -7,6 +7,8 @@ public class Valve : MonoBehaviour
     public Animator gate;
     public Animator valve;
     bool inReach = false;
+    bool turned = false;
+    public AudioSource valveClip;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +18,14 @@ public class Valve : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inReach)
+        if (inReach && !turned)
         {
             if (Input.GetKey(KeyCode.E))
             {
                 valve.SetBool("Turned", true);
                 gate.SetBool("Open", true);
+                valveClip.Play();
+                turned = true;
             }
         }
     }
